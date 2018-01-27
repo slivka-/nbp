@@ -19,7 +19,7 @@ import pl.jrj.mdb.IMdbManager;
 @Path("/exchangeRate")
 public class ExchRates
 {
-    private final String MDB_DESC = "java:global/ejb-project/"+
+    private final String MDB_DESC = "java:global/mdb-project/"+
                                     "MdbManager!pl.jrj.mdb.IMdbManager";
     
     /**
