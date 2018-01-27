@@ -19,7 +19,7 @@ public class RatesFinder
                                             "xml/a019z180126.xml";
     
     //exchange rates map
-    HashMap<String,Double> rates;
+    private HashMap<String,Double> rates;
     
     /**
      * Finds exchange rates of two given currencies
@@ -32,7 +32,7 @@ public class RatesFinder
         //initialize result map
         rates = new HashMap<>();
         
-        //if code1 or code2 is PLN put in map exchange rate equal to 1.0
+        //if code1 or code2 is PLN put exchange rate equal to 1.0
         if(code1.equalsIgnoreCase("PLN") || code2.equalsIgnoreCase("PLN"))
             rates.put("PLN", 1.0);
         
@@ -103,14 +103,18 @@ public class RatesFinder
                     {
                         //put rate1 to result map
                         if (isRate1)
+                        //replace , with . to allow parsing
                             rates.put(code1, 
                                     Double.parseDouble(
-                                            new String(ch,start,length)));
+                                            new String(ch,start,length)
+                                                    .replace(',', '.')));
                         //put rate2 to result map
                         if (isRate2)
+                        //replace , with . to allow parsing    
                             rates.put(code2, 
                                     Double.parseDouble(
-                                            new String(ch,start,length)) );
+                                            new String(ch,start,length)
+                                                    .replace(',', '.')));
                     }
                 }
                 
